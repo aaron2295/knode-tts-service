@@ -24,9 +24,10 @@ app.post('/tts', async (req, res) => {
     if (!script) return res.status(400).json({ error: 'Missing script' });
 
     const response = await openai.audio.speech.create({
-      model: 'tts-1',
+      model: 'gpt-4o-mini-tts',
       voice: 'nova',
       input: script,
+      instructions: 'Talk in an inspirational style, similar to how a ted-talk will be delivered. Ensure nice long phrases between sentences and paragraphs',
     });
 
     const buffer = Buffer.from(await response.arrayBuffer());
