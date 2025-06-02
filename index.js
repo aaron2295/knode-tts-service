@@ -25,9 +25,9 @@ app.post('/tts', async (req, res) => {
 
     const response = await openai.audio.speech.create({
       model: 'gpt-4o-mini-tts',
-      voice: 'nova',
+      voice: 'Fable',
       input: script,
-      instructions: 'Talk in an inspirational style, similar to how a ted-talk will be delivered. Ensure nice long phrases between sentences and paragraphs',
+      instructions: 'Talk in an inspirational style, similar to how a ted-talk will be delivered. Ensure nice long pauses between sentences and paragraphs',
     });
 
     const buffer = Buffer.from(await response.arrayBuffer());
